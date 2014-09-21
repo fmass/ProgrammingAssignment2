@@ -1,9 +1,9 @@
 ## The makeCacheMatrix function creates a special "matrix" (e.i., a list of functions) 
 ## when used together with the cacheSolve function (see COMMON USAGE and OUTPUT EXAMPLE below)
-## to cache potentially time-consuming computations. In particular, these functions cache 
-## inverse of a matrix.
+## caches potentially time-consuming computations. In particular, these functions calculate and cache 
+## the inverse of a matrix.
 ## 
-## NOTE: It is assumed that the matrix supplied to these functions is always invertible
+## NOTE: It is assumed that the matrix supplied to these functions is always invertible.
 ##
 ## COMMON USAGE
 ## =============================
@@ -25,7 +25,7 @@
 ## [1,]   -2  1.5
 ## [2,]    1 -0.5
 
-## The makeVector creates a special "matrix" (e.i., a list of functions) that 
+## The makeCacheMatrix creates a special "matrix" (e.i., a list of functions) that 
 ##
 ##    sets the value of the matrix (set() function)
 ##    gets the value of the matrix (get() function)
@@ -34,8 +34,8 @@
 ##
 ## PARAMETERS AND VARIABLES
 ##
-##  x - is the matrix to inverse
-##  i - is the cached value for the inversed matrix (default value is null)
+##  x - is the matrix to inverse.
+##  i - is the cached value of the inversed matrix (default value is null).
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -55,19 +55,19 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The cacheSolve function calculates the inverse of a matrix of the special "matrix" 
+## The cacheSolve function calculates the inverse of the special "matrix" 
 ## created with the makeCacheMatrix function.
 ##
-## NOTE: It checks to see wether the inverse of the matrix was calculated. 
-##       If so, it returns the cached value and do not calculate the inverse of the matrix.
+## NOTE: It checks to see whether the inverse of the matrix was calculated. 
+##       If so, it returns the cached value and does not calculate the inverse of the matrix.
 ##       If not, it calculates the inverse of the matrix and puts the result in the cache 
 ##       using the setinverse function.
 ## 
 ## PARAMETERS AND VARIABLES
 ##
-##  x - is the special "matrix" created using the to makeCacheMatrix
-##  i - is the inversed matrix returned to the user
-## data - is the matrix to inverse
+##  x - is the special "matrix" created using the to makeCacheMatrix.
+##  i - is the inversed matrix returned to the user.
+##  data - is the matrix to inverse.
 
 cacheSolve <- function(x, ...) {
   
